@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 20px;
+            border: 10px solid white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .message {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: fall linear forwards;
+            font-size: 20px;
+            color: #ff6b6b;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        .music-controls {
+            margin-top: 20px;
+        }
+        
+        .download-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #ff4757;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>This is for you Shania ❤️</h1>
+        
+        <div class="photo-frame">
+            <!-- Replace with your photo -->
+            <img src="https://i.imgur.com/FPKLJgA.jpeg" alt="Shania">
+        </div>
+        
+        <div class="message">
+            Every moment with you is special. You make my life beautiful in every way. you more than words can express.
+        </div>
+        
+        <div class="music-controls">
+            <audio id="loveSong" controls autoplay>
+                <!-- Replace with your music file -->
+                <source src="https://archive.org/download/RoelCortez002/03.%20Iniibig%20Kita.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        <button class="download-btn" onclick="downloadAsVideo()">Download for MyDay</button>
+    </div>
+    
+    <script>
+        // Create falling hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        // Generate hearts every 300ms
+        setInterval(createHeart, 300);
+        
+        // Try to autoplay music with user interaction
+        document.addEventListener('click', function() {
+            const audio = document.getElementById('loveSong');
+            audio.play().catch(e => console.log("Autoplay prevented:", e));
+        }, { once: true });
+        
+        // Function to download as video (conceptual - would need actual implementation)
+        function downloadAsVideo() {
+            alert("To create a video for Facebook MyDay:\n1. Screen record this page while the music plays\n2. Save the recording\n3. Upload to Facebook MyDay");
+            // In a real implementation, you would use a library like html2canvas and ffmpeg.js
+            // to actually capture and convert to video
+        }
+    </script>
+</body>
+  </html>
